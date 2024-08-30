@@ -3,7 +3,8 @@ const buttons = document.querySelector("#buttons");
 const changeGridSizeButton = document.querySelector("#changeGridSize");
 const resetGridSizeButton = document.querySelector("#resetGridSize");
 const gridSizeDisplay = document.querySelector("#gridSize");
-const pixelate = e => e.target.classList.add("pixel");
+const randomRGBValue = () => Math.floor(Math.random() * 256) + 1;
+const pixelate = e => e.target.style.backgroundColor = `rgb(${randomRGBValue()}, ${randomRGBValue()}, ${randomRGBValue()})`;
 const drawGrid = () => {
     gridRows.innerHTML = '';
     for (let i = 0; i < gridSize; i++) {
