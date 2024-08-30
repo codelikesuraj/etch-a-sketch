@@ -32,11 +32,19 @@ changeGridSizeButton.onclick = () => {
     const message = "Select grid size"
     const error = "Invalid size! Enter value between 16 and 100 inclusive"
 
-    gridSize = Number(prompt(message, ""));
-    while (gridSize < 16 || gridSize > 100) {
-        gridSize = Number(prompt(error))
+    let newGridSize = prompt(message);
+    if (newGridSize === null) {
+        return
     }
 
+    while (Number(newGridSize) < 16 || Number(newGridSize) > 100) {
+        newGridSize = prompt(error)
+        if (newGridSize == null) {
+            return
+        }
+    }
+
+    gridSize = Number(newGridSize)
     drawGrid();
 }
 window.onmousedown = () => isMouseDown = true;
